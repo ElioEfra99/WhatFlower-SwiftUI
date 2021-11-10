@@ -18,7 +18,7 @@ struct AppView: View {
             FavoriteView()
                 .tabItem {
                     Image(systemName: "heart")
-                    Text("Favorite")
+                    Text("Favorites")
                 }
         }.overlay(
             CameraButton()

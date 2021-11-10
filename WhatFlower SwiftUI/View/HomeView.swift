@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    var userHasRecentFlowers = false
+    
     var body: some View {
         GeometryReader { proxy in
             NavigationView {
@@ -27,16 +29,42 @@ struct HomeView: View {
                                 Text("Latest discoveries")
                                     .font(Font.system(size: 18.0, weight: .medium))
                                 Spacer()
-                                Button(action: { print("Holaaa")} ) {
-                                    Text("See all")
-                                        .font(Font.system(size: 14, weight: .regular))
-                                        .foregroundColor(.secondary)
+                                if userHasRecentFlowers {
+                                    Button(action: { print("Show latest discoveries screen")} ) {
+                                        Text("See all")
+                                            .font(Font.system(size: 14, weight: .regular))
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
+                                
                             }.padding(.top, 24.0)
 
-                            HStack {
-                                ImageView(width: (proxy.size.width / 2) - 16)
-                                ImageView(width: (proxy.size.width / 2) - 16)
+                            if userHasRecentFlowers {
+                                HStack {
+                                    ImageView(width: (proxy.size.width / 2) - 16)
+                                    ImageView(width: (proxy.size.width / 2) - 16)
+                                }
+                            } else {
+                                VStack {
+                                    // TODO: Implement empty sate
+                                    
+                                    Image("empty_flower")
+                                        .resizable()
+                                        .frame(width: 150, height: 200)
+                                    
+                                    VStack {
+                                        Text("No Flowers!")
+                                            .font(.system(size: 20.0, weight: .bold))
+                                            .padding(.top, 12.0)
+                                        Text("Start looking for flowers by tapping the green button below")
+                                            .foregroundColor(.secondary)
+                                            .font(.system(size: 14.0))
+                                            .multilineTextAlignment(.center)
+                                            .lineLimit(nil)
+                                            .frame(minHeight: 40.0)
+                                    }
+                                    .padding(.horizontal, 40.0)
+                                }.padding(.top, 24.0)
                             }
                             
                             Spacer(minLength: 40)
@@ -55,10 +83,6 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(["iPhone 13"], id: \.self) { deviceName in
-            HomeView()
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
+        HomeView()
     }
 }
