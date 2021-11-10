@@ -23,7 +23,7 @@ struct AppView: View {
         }.overlay(
             CameraButton()
             ,alignment: .bottom
-        )
+        ).accentColor(.green)
     }
 }
 
