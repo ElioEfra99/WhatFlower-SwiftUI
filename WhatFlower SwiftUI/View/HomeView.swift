@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    var userHasRecentFlowers = false
+    @State var userHasRecentFlowers = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -45,9 +45,7 @@ struct HomeView: View {
                                     ImageView(width: (proxy.size.width / 2) - 16)
                                 }
                             } else {
-                                VStack {
-                                    // TODO: Implement empty sate
-                                    
+                                VStack {                                    
                                     Image("empty_flower")
                                         .resizable()
                                         .frame(width: 150, height: 200)

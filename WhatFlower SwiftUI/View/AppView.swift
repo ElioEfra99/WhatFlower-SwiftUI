@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppView: View {
+    
     var body: some View {
         TabView {
             HomeView()
@@ -24,6 +25,10 @@ struct AppView: View {
             CameraButton()
             ,alignment: .bottom
         ).accentColor(.green)
+// TODO: Present our image found from wikipedia
+//            .fullScreenCover(isPresented: $foundFlower) {
+//
+//            }
     }
 }
 

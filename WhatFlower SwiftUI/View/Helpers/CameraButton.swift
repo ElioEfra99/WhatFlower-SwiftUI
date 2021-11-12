@@ -16,12 +16,11 @@ struct TabButtonStyle: ButtonStyle {
 }
 
 struct CameraButton: View {
-    
-    
+    @State var isShowingImagePicker = false
     
     var body: some View {
         Button {
-            print("Opens UIPickerView")
+            isShowingImagePicker.toggle()
         } label: {
             ZStack {
                 Circle()
@@ -36,11 +35,14 @@ struct CameraButton: View {
             }.offset(y: -10)
         }
         .buttonStyle(TabButtonStyle())
-    }
-}
-
-struct CameraButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraButton()
+        .fullScreenCover(isPresented: $isShowingImagePicker) {
+            ImagePickerView()
+        }
+//        .fullScreenCover(isPresented: $isShowingImagePicker) {
+//            // Let know our previous View that we effectively found a flower
+//        } content: {
+//            ImagePickerView()
+//        }
+        
     }
 }
