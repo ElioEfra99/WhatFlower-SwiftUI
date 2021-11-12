@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import CoreML
+import Vision
 
 struct ImagePickerView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIImagePickerController {
@@ -17,6 +19,8 @@ struct ImagePickerView: UIViewControllerRepresentable {
         uiImagePicker.delegate = context.coordinator
         return uiImagePicker
     }
+    
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) { }
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(parent: self)
@@ -30,14 +34,37 @@ struct ImagePickerView: UIViewControllerRepresentable {
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let selectedImage = info[.originalImage] as? UIImage {
+                guard let ciImage = CIImage(image: selectedImage) else { return }
                 // Use the selected image to trigger detection
+                detect(flowerImage: ciImage)
                 print(selectedImage)
             }
             picker.dismiss(animated: true, completion: nil)
         }
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
         
+        func detect(flowerImage: CIImage) {
+            guard let classifierModel = try? VNCoreMLModel(for: FlowerClassifier(configuration: .init()).model) else {
+                fatalError("Could not setup CoreML model")
+            }
+            
+            let request = VNCoreMLRequest(model: classifierModel) { request, error in
+                guard let classification = request.results as? [VNClassificationObservation] else {
+                    fatalError("Model failed to process image")
+                }
+                
+                if let firstItem = classification.first {
+                    let flowerFound = firstItem.identifier
+                    print(flowerFound)
+                }
+            }
+            
+            let handler = VNImageRequestHandler(ciImage: flowerImage)
+            
+            do {
+                try handler.perform([request])
+            } catch {
+                print(error)
+            }
+        }
     }
 }
