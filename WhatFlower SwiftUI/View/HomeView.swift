@@ -17,18 +17,21 @@ struct HomeView: View {
                 ZStack {
                     Color("BackgroundColor")
                         .ignoresSafeArea(edges: .top)
+                    
                     ScrollView {
                         VStack(alignment: .leading) {
                             Text("Flower of the day")
-                                .font(.system(size: 18.0, weight: .medium))
-                                .padding(.top, 24.0)
-
+                                .font(.system(size: 18, weight: .medium))
+                                .padding(.top, 24)
+                            
                             ImageView(width: proxy.size.width - (proxy.size.width / 3))
-
+                            
                             HStack {
                                 Text("Latest discoveries")
-                                    .font(Font.system(size: 18.0, weight: .medium))
+                                    .font(Font.system(size: 18, weight: .medium))
+                                
                                 Spacer()
+                                
                                 if userHasRecentFlowers {
                                     Button(action: { print("Show latest discoveries screen")} ) {
                                         Text("See all")
@@ -36,41 +39,44 @@ struct HomeView: View {
                                             .foregroundColor(.secondary)
                                     }
                                 }
-                                
-                            }.padding(.top, 24.0)
-
+                            }
+                            .padding(.top, 24)
+                            
                             if userHasRecentFlowers {
                                 HStack {
-                                    ImageView(width: (proxy.size.width / 2) - 16)
-                                    ImageView(width: (proxy.size.width / 2) - 16)
+                                    ImageView(width: (proxy.size.width / 2) - 20)
+                                    ImageView(width: (proxy.size.width / 2) - 20)
                                 }
                             } else {
-                                VStack {                                    
-                                    Image("empty_flower")
-                                        .resizable()
-                                        .frame(width: 150, height: 200)
+                                HStack {
+                                    Spacer()
                                     
                                     VStack {
-                                        Text("No Flowers!")
-                                            .font(.system(size: 20.0, weight: .bold))
-                                            .padding(.top, 12.0)
-                                        Text("Start looking for flowers by tapping the green button below")
-                                            .foregroundColor(.secondary)
-                                            .font(.system(size: 14.0))
-                                            .multilineTextAlignment(.center)
-                                            .lineLimit(nil)
-                                            .frame(minHeight: 40.0)
+                                        Image("empty_flower")
+                                            .resizable()
+                                            .frame(width: 150, height: 200)
+                                        VStack {
+                                            Text("No Flowers!")
+                                                .font(.system(size: 20, weight: .bold))
+                                                .padding(.top, 12)
+                                            Text("Start looking for flowers by tapping the green button below")
+                                                .foregroundColor(.secondary)
+                                                .font(.system(size: 14))
+                                                .lineLimit(nil)
+                                                .multilineTextAlignment(.center)
+                                                .padding(.top, 2)
+                                        }
+                                        .padding(.horizontal, 40)
                                     }
-                                    .padding(.horizontal, 40.0)
-                                }.padding(.top, 24.0)
+                                    .padding(.top, 24)
+                                    
+                                    Spacer()
+                                }
                             }
                             
                             Spacer(minLength: 40)
-
                         }
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .padding(.horizontal)
-                        
                     }
                 }
                 .navigationTitle("WhatFlower?")

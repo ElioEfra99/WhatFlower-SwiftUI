@@ -26,10 +26,14 @@ struct ImagePickerView: UIViewControllerRepresentable {
         return Coordinator(parent: self)
     }
     
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FlowerServiceDelegate {
         let parent: ImagePickerView
+        var flowerService = FlowerService()
+        
         init(parent: ImagePickerView) {
             self.parent = parent
+            super.init()
+            flowerService.delegate = self
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -37,7 +41,6 @@ struct ImagePickerView: UIViewControllerRepresentable {
                 guard let ciImage = CIImage(image: selectedImage) else { return }
                 // Use the selected image to trigger detection
                 detect(flowerImage: ciImage)
-                print(selectedImage)
             }
             picker.dismiss(animated: true, completion: nil)
         }
@@ -54,7 +57,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
                 
                 if let firstItem = classification.first {
                     let flowerFound = firstItem.identifier
-                    print(flowerFound)
+                    self.flowerService.fetchFlower(flowerName: flowerFound)
                 }
             }
             
@@ -63,8 +66,18 @@ struct ImagePickerView: UIViewControllerRepresentable {
             do {
                 try handler.perform([request])
             } catch {
-                print(error)
+                print("Failed detecting flower with error: \(error)")
             }
+        }
+        
+        //MARK: - FlowerService Delegate Methods
+        
+        func didFindFlower(_ flower: FlowerModel) {
+            // Do something with our new flower object
+        }
+        
+        func didFail(with error: Error) {
+            print(error)
         }
     }
 }
