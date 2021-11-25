@@ -11,9 +11,12 @@ import CoreML
 import Vision
 
 struct ImagePickerView: UIViewControllerRepresentable {
+    @EnvironmentObject var flower: FlowerObject
+    @Binding var isPresented: Bool
+    @Binding var isLoading: Bool
+    
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let uiImagePicker = UIImagePickerController()
-        // Couple lines to enable using image picker in physical device
 //        uiImagePicker.sourceType = .camera
 //        uiImagePicker.allowsEditing = true
         uiImagePicker.delegate = context.coordinator
@@ -27,6 +30,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
     }
     
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FlowerServiceDelegate {
+        
         let parent: ImagePickerView
         var flowerService = FlowerService()
         
@@ -39,10 +43,9 @@ struct ImagePickerView: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let selectedImage = info[.originalImage] as? UIImage {
                 guard let ciImage = CIImage(image: selectedImage) else { return }
-                // Use the selected image to trigger detection
+                parent.isLoading = true
                 detect(flowerImage: ciImage)
             }
-            picker.dismiss(animated: true, completion: nil)
         }
         
         func detect(flowerImage: CIImage) {
@@ -66,18 +69,28 @@ struct ImagePickerView: UIViewControllerRepresentable {
             do {
                 try handler.perform([request])
             } catch {
-                print("Failed detecting flower with error: \(error)")
+                print("Failed performing requests with error: \(error)")
             }
         }
         
         //MARK: - FlowerService Delegate Methods
         
         func didFindFlower(_ flower: FlowerModel) {
-            // Do something with our new flower object
+            DispatchQueue.main.async {
+                self.parent.flower.title = flower.title
+                self.parent.flower.extract = flower.extract
+                self.parent.flower.imageURL = flower.imageURL
+            }
+            
+            parent.isPresented = false
+            parent.isLoading = false
         }
         
         func didFail(with error: Error) {
-            print(error)
+            print("Failed to retrieve flower data from wikipedia API")
+            
+            parent.isPresented = false
+            parent.isLoading = false
         }
     }
 }

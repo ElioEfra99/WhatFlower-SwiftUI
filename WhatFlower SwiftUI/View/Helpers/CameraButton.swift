@@ -17,6 +17,9 @@ struct TabButtonStyle: ButtonStyle {
 
 struct CameraButton: View {
     @State var isShowingImagePicker = false
+    @State var isLoading = false
+    @EnvironmentObject var flower: FlowerObject
+    @Binding var foundFlower: Bool
     
     var body: some View {
         Button {
@@ -36,13 +39,18 @@ struct CameraButton: View {
         }
         .buttonStyle(TabButtonStyle())
         .fullScreenCover(isPresented: $isShowingImagePicker) {
-            ImagePickerView()
+            if !flower.title.isEmpty && !flower.extract.isEmpty && flower.imageURL != nil {
+                foundFlower = true
+            }
+        } content: {
+            ZStack {
+                ImagePickerView(isPresented: $isShowingImagePicker, isLoading: $isLoading)
+                
+                if isLoading {
+                    ProgressView()
+                        .scaleEffect(2)
+                }
+            }
         }
-//        .fullScreenCover(isPresented: $isShowingImagePicker) {
-//            // Let know our previous View that we effectively found a flower
-//        } content: {
-//            ImagePickerView()
-//        }
-        
     }
 }

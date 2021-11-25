@@ -13,7 +13,7 @@ protocol FlowerServiceDelegate {
 }
 
 struct FlowerService {
-    private let wikipediaUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts|pageimages&exintro&explaintext&redirects=1&indexpageids&pithumbsize=500"
+    private let wikipediaUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts|pageimages&exintro&explaintext&redirects=1&indexpageids&pithumbsize=350"
     
     var delegate: FlowerServiceDelegate?
     
@@ -55,7 +55,9 @@ struct FlowerService {
             
             if let title = dataPath?.title, let extract = dataPath?.extract, let imageURL = dataPath?.thumbnail.source {
                 guard let url = URL(string: imageURL) else { return nil }
+                
                 let flower = FlowerModel(title: title, extract: extract, imageURL: url)
+                print(flower)
                 return flower
             }
             

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AppView: View {
+    @StateObject var flower = FlowerObject()
+    @State var foundFlower = false
+    
     var body: some View {
         TabView {
             HomeView()
@@ -20,14 +23,19 @@ struct AppView: View {
                     Image(systemName: "heart")
                     Text("Favorites")
                 }
-        }.overlay(
-            CameraButton()
+        }
+        .overlay(
+            CameraButton(foundFlower: $foundFlower)
             ,alignment: .bottom
-        ).accentColor(.green)
-// TODO: Present our image found from wikipedia
-//            .fullScreenCover(isPresented: $foundFlower) {
-//
-//            }
+        )
+        .accentColor(.green)
+        .fullScreenCover(isPresented: $foundFlower) {
+            // After dismissing, data from environment object should be wiped out
+            // Its current data should be appended to some sort of database
+        } content: {
+            FlowerResultView()
+        }
+        .environmentObject(flower)
     }
 }
 
