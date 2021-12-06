@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoriteView: View {
-    var userHasFavorites = false
+    var userHasFavorites = true
     let layout = [
         GridItem(.flexible()),
         GridItem(.flexible())

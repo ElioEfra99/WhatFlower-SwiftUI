@@ -54,7 +54,7 @@ struct FlowerResultView: View {
                             Spacer()
                         }
                         
-                    }.border(.red)
+                    }
                     
                     VStack(alignment: .leading) {
                         Text(flowerObject.title)
@@ -62,6 +62,18 @@ struct FlowerResultView: View {
                             .padding(.top, 16)
                         Text(flowerObject.extract)
                             .padding(.top, 16)
+                        
+                        Divider()
+                        
+                        Text("Similar results")
+                            .font(.system(size: 24, weight: .medium))
+                            .padding(.top, 16)
+                        
+                        HStack {
+                            ImageView(width: proxy.size.width / 2.5)
+                            ImageView(width: proxy.size.width / 2.5)
+                        }
+                        
                     }
                     .padding(.horizontal)
                 }
