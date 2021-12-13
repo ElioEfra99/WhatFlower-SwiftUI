@@ -59,7 +59,7 @@ struct HomeView: View {
                                             Text("No Flowers!")
                                                 .font(.system(size: 20, weight: .bold))
                                                 .padding(.top, 12)
-                                            Text("Start looking for flowers by tapping the green button below")
+                                            Text("Start looking for flowers by tapping the camera button below")
                                                 .foregroundColor(.secondary)
                                                 .font(.system(size: 14))
                                                 .lineLimit(nil)

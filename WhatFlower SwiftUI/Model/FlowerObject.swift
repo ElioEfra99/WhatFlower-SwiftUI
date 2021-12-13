@@ -11,6 +11,7 @@ class FlowerObject: ObservableObject {
     @Published var title: String
     @Published var extract: String
     @Published var imageURL: URL?
+    @Published var isFavorite: Bool = false
     
     init(title: String = "", extract: String = "", imageURL: URL? = nil) {
         self.title = title

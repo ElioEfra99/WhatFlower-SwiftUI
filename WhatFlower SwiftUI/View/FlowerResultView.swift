@@ -13,7 +13,7 @@ struct FlowerResultView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            // TODO: Add remaining pieces of UI
+            // TODO: Save our recenlty looked flower.
             VStack {
                 ScrollView{
                     ZStack {
@@ -36,17 +36,26 @@ struct FlowerResultView: View {
                                 } label: {
                                     Image(systemName: "xmark.circle")
                                         .resizable()
-                                        .frame(width: 25, height: 25)
+                                        .frame(width: 22, height: 22)
                                         .foregroundColor(.white)
                                 }
                                 Spacer()
                                 Button {
-                                    print("Favorite")
+                                    flowerObject.isFavorite.toggle()
                                 } label: {
-                                    Image(systemName: "heart")
-                                        .resizable()
-                                        .frame(width: 25, height: 22)
-                                        .foregroundColor(.white)
+                                    
+                                    if flowerObject.isFavorite {
+                                        Image(systemName: "heart.fill")
+                                            .resizable()
+                                            .frame(width: 22, height: 19)
+                                            .foregroundColor(.red)
+                                    } else {
+                                        Image(systemName: "heart")
+                                            .resizable()
+                                            .frame(width: 22, height: 19)
+                                            .foregroundColor(.white)
+                                    }
+                                    
                                 }
                             }
                             .padding(.top, 50)
@@ -62,18 +71,6 @@ struct FlowerResultView: View {
                             .padding(.top, 16)
                         Text(flowerObject.extract)
                             .padding(.top, 16)
-                        
-                        Divider()
-                        
-                        Text("Similar results")
-                            .font(.system(size: 24, weight: .medium))
-                            .padding(.top, 16)
-                        
-                        HStack {
-                            ImageView(width: proxy.size.width / 2.5)
-                            ImageView(width: proxy.size.width / 2.5)
-                        }
-                        
                     }
                     .padding(.horizontal)
                 }

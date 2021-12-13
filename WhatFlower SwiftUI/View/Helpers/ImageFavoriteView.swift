@@ -20,33 +20,21 @@ struct ImageFavoriteView: View {
                 HStack {
                     Spacer()
                     ZStack {
-                        if !isFavorite {
-                            Button(action: {
-                                isFavorite.toggle()
-                            }) {
+                        Button(action: {
+                            isFavorite.toggle()
+                        }) {
+                            if isFavorite {
+                                Image(systemName: "heart.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 27)
+                                    .foregroundColor(.red)
+                            } else {
                                 Image(systemName: "heart")
                                     .resizable()
                                     .frame(width: 30, height: 27)
                                     .foregroundColor(.white)
-                                    
-                            }.offset(x: -20, y: 20)
-                            
-                        } else {
-                            Image(systemName: "heart.fill")
-                                .resizable()
-                                .frame(width: 30, height: 27)
-                                .foregroundColor(.red)
-                                .offset(x: -20, y: 20)
-                            Button(action: {
-                                isFavorite.toggle()
-                            }) {
-                                Image(systemName: "heart")
-                                    .resizable()
-                                    .frame(width: 30, height: 27)
-                                    .foregroundColor(.white)
-                                    
-                            }.offset(x: -20, y: 20)
-                        }
+                            }
+                        }.offset(x: -20, y: 20)
                     }
                 }
                 

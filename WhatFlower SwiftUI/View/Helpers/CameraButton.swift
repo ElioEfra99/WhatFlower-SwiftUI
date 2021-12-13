@@ -20,6 +20,7 @@ struct CameraButton: View {
     @State var isLoading = false
     @EnvironmentObject var flower: FlowerObject
     @Binding var foundFlower: Bool
+    let not = (!)
     
     var body: some View {
         Button {
@@ -39,7 +40,7 @@ struct CameraButton: View {
         }
         .buttonStyle(TabButtonStyle())
         .fullScreenCover(isPresented: $isShowingImagePicker) {
-            if !flower.title.isEmpty && !flower.extract.isEmpty && flower.imageURL != nil {
+            if not(flower.title.isEmpty) && not(flower.extract.isEmpty) && flower.imageURL != nil {
                 foundFlower = true
             }
         } content: {
