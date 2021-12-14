@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppView: View {
     @StateObject var flower = FlowerObject()
+    @EnvironmentObject var modelData: ModelData
     @State var foundFlower = false
     
     var body: some View {
@@ -30,12 +31,22 @@ struct AppView: View {
         )
         .accentColor(.green)
         .fullScreenCover(isPresented: $foundFlower) {
-            // After dismissing, data from environment object should be wiped out
-            // Its current data should be appended to some sort of database
+            guard let url = flower.imageURL else { return }
+            let flowerToSave = Flower(title: flower.title, extract: flower.extract, imageURL: url)
+            modelData.flowers.append(flowerToSave)
+            clearFlowerObject()
+            modelData.saveFlower()
         } content: {
             FlowerResultView()
         }
         .environmentObject(flower)
+    }
+    
+    func clearFlowerObject() {
+        flower.title = ""
+        flower.extract = ""
+        flower.imageURL = URL(string: "")
+        foundFlower = false
     }
 }
 

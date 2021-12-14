@@ -13,7 +13,6 @@ struct FlowerResultView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            // TODO: Save our recenlty looked flower.
             VStack {
                 ScrollView{
                     ZStack {

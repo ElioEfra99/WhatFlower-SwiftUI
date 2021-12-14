@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct FlowerModel {
+struct Flower: Codable {
     let title: String
     let extract: String
     let imageURL: URL
+    var isFavorite: Bool = false
 }

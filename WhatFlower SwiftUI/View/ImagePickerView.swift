@@ -17,8 +17,6 @@ struct ImagePickerView: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let uiImagePicker = UIImagePickerController()
-//        uiImagePicker.sourceType = .camera
-//        uiImagePicker.allowsEditing = true
         uiImagePicker.delegate = context.coordinator
         return uiImagePicker
     }
@@ -75,7 +73,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
         
         //MARK: - FlowerService Delegate Methods
         
-        func didFindFlower(_ flower: FlowerModel) {
+        func didFindFlower(_ flower: Flower) {
             DispatchQueue.main.async {
                 self.parent.flower.title = flower.title
                 self.parent.flower.extract = flower.extract

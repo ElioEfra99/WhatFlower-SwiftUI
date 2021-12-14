@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FlowerServiceDelegate {
-    func didFindFlower(_ flower: FlowerModel)
+    func didFindFlower(_ flower: Flower)
     func didFail(with error: Error)
 }
 
@@ -46,7 +46,7 @@ struct FlowerService {
         
     }
     
-    func parseJSON(with data: Data) -> FlowerModel? {
+    func parseJSON(with data: Data) -> Flower? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(FlowerData.self, from: data)
@@ -56,8 +56,7 @@ struct FlowerService {
             if let title = dataPath?.title, let extract = dataPath?.extract, let imageURL = dataPath?.thumbnail.source {
                 guard let url = URL(string: imageURL) else { return nil }
                 
-                let flower = FlowerModel(title: title, extract: extract, imageURL: url)
-                print(flower)
+                let flower = Flower(title: title, extract: extract, imageURL: url)
                 return flower
             }
             

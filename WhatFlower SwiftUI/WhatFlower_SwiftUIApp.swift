@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct WhatFlower_SwiftUIApp: App {
+    @StateObject var modelData = ModelData()
     var body: some Scene {
         WindowGroup {
             AppView()
+                .environmentObject(modelData)
         }
     }
 }
