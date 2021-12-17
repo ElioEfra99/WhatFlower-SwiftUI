@@ -21,4 +21,15 @@ final class ModelData: ObservableObject {
             print("Encoding flowers failed with error: \(error)")
         }
     }
+    
+    func loadFlowers() {
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                flowers = try decoder.decode([Flower].self, from: data)
+            } catch {
+                print("An error ocurred decoding data from device")
+            }
+        }
+    }
 }

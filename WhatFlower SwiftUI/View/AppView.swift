@@ -33,13 +33,22 @@ struct AppView: View {
         .fullScreenCover(isPresented: $foundFlower) {
             guard let url = flower.imageURL else { return }
             let flowerToSave = Flower(title: flower.title, extract: flower.extract, imageURL: url)
-            modelData.flowers.append(flowerToSave)
+            
+            if modelData.flowers.contains(where: { flower in
+                flower.title != flowerToSave.title
+            }) {
+                modelData.flowers.append(flowerToSave)
+            }
+            
             clearFlowerObject()
             modelData.saveFlower()
         } content: {
             FlowerResultView()
         }
         .environmentObject(flower)
+        .onAppear {
+            modelData.loadFlowers()
+        }
     }
     
     func clearFlowerObject() {

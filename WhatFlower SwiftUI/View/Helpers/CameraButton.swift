@@ -16,10 +16,10 @@ struct TabButtonStyle: ButtonStyle {
 }
 
 struct CameraButton: View {
-    @State var isShowingImagePicker = false
-    @State var isLoading = false
-    @State var fetchingFailed = false
-    @State var showingAlert = false
+    @State private var isShowingImagePicker = false
+    @State private var isLoading = false
+    @State private var fetchingFailed = false
+    @State private var showingAlert = false
     @EnvironmentObject var flower: FlowerObject
     @Binding var foundFlower: Bool
     let not = (!)
