@@ -14,6 +14,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
     @EnvironmentObject var flower: FlowerObject
     @Binding var isPresented: Bool
     @Binding var isLoading: Bool
+    @Binding var fetchingFailed: Bool
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let uiImagePicker = UIImagePickerController()
@@ -85,7 +86,10 @@ struct ImagePickerView: UIViewControllerRepresentable {
         }
         
         func didFail(with error: Error) {
-            print("Failed to retrieve flower data from wikipedia API")
+            print("Failed to retrieve flower data from wikipedia API, error: \(error)")
+            
+            // Show an alert about the user not having internet connection
+            parent.fetchingFailed = true
             
             parent.isPresented = false
             parent.isLoading = false
