@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Flower: Codable {
+struct Flower: Identifiable, Codable {
+    let id: Int
     let title: String
     let extract: String
     let imageURL: URL

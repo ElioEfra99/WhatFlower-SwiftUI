@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @State var userHasRecentFlowers = false
+    @Binding var userHasRecentFlowers: Bool
     
     var body: some View {
         GeometryReader { proxy in
@@ -85,8 +84,8 @@ struct HomeView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}

@@ -11,15 +11,25 @@ struct AppView: View {
     @StateObject var flower = FlowerObject()
     @EnvironmentObject var modelData: ModelData
     @State var foundFlower = false
+    @State var userHasRecentFlowers = false
+    @State var userHasFavorites = false
+    
+    var filteredFlowers: [Flower] {
+        modelData.flowers.filter { flower in
+            flower.isFavorite
+        }
+    }
+    
+    let not = (!)
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(userHasRecentFlowers: $userHasRecentFlowers)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            FavoriteView()
+            FavoriteView(userHasFavorites: $userHasFavorites, filteredFlowers: filteredFlowers)
                 .tabItem {
                     Image(systemName: "heart")
                     Text("Favorites")
@@ -32,12 +42,14 @@ struct AppView: View {
         .accentColor(.green)
         .fullScreenCover(isPresented: $foundFlower) {
             guard let url = flower.imageURL else { return }
-            let flowerToSave = Flower(title: flower.title, extract: flower.extract, imageURL: url)
+            let flowerToSave = Flower(id: flower.id, title: flower.title, extract: flower.extract, imageURL: url, isFavorite: flower.isFavorite)
             
-            if modelData.flowers.contains(where: { flower in
-                flower.title != flowerToSave.title
+            if modelData.flowers.isEmpty || modelData.flowers.contains(where: { flower in
+                flower.id != flowerToSave.id
             }) {
                 modelData.flowers.append(flowerToSave)
+                updateUserHasFlowers()
+                updateUserHasFavorites()
             }
             
             clearFlowerObject()
@@ -48,6 +60,8 @@ struct AppView: View {
         .environmentObject(flower)
         .onAppear {
             modelData.loadFlowers()
+            updateUserHasFlowers()
+            updateUserHasFavorites()
         }
     }
     
@@ -55,7 +69,21 @@ struct AppView: View {
         flower.title = ""
         flower.extract = ""
         flower.imageURL = URL(string: "")
+        flower.isFavorite = false
+        flower.id = 0
         foundFlower = false
+    }
+    
+    func updateUserHasFlowers() {
+        if not(modelData.flowers.isEmpty) {
+            userHasRecentFlowers = true
+        }
+    }
+    
+    func updateUserHasFavorites() {
+        if not(filteredFlowers.isEmpty) {
+            userHasFavorites = true
+        }
     }
 }
 

@@ -18,7 +18,7 @@ final class ModelData: ObservableObject {
             let data = try encoder.encode(flowers)
             try data.write(to: dataFilePath!)
         } catch {
-            print("Encoding flowers failed with error: \(error)")
+            print("Saving flowers failed with error: \(error)")
         }
     }
     
@@ -28,7 +28,7 @@ final class ModelData: ObservableObject {
             do {
                 flowers = try decoder.decode([Flower].self, from: data)
             } catch {
-                print("An error ocurred decoding data from device")
+                print("An error ocurred obtaining flowers from device")
             }
         }
     }

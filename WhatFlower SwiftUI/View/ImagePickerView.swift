@@ -79,6 +79,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
                 self.parent.flower.title = flower.title
                 self.parent.flower.extract = flower.extract
                 self.parent.flower.imageURL = flower.imageURL
+                self.parent.flower.id = flower.id
             }
             
             parent.isPresented = false

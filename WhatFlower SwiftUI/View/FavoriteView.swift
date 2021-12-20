@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct FavoriteView: View {
-    var userHasFavorites = false
+    @Binding var userHasFavorites: Bool
+    @EnvironmentObject var modelData: ModelData
+    var filteredFlowers: [Flower]
+    
     let layout = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -23,11 +26,9 @@ struct FavoriteView: View {
                 if userHasFavorites {
                     ScrollView {
                         LazyVGrid(columns: layout, spacing: 20.0) {
-                            ImageFavoriteView()
-                            ImageFavoriteView()
-                            ImageFavoriteView()
-                            ImageFavoriteView()
-                            ImageFavoriteView()
+                            ForEach(filteredFlowers) { flower in
+                                ImageFavoriteView()
+                            }
                         }
                         .padding(.horizontal)
                         .padding(.top, 24.0)
@@ -52,16 +53,14 @@ struct FavoriteView: View {
                         .padding(.horizontal, 40.0)
                     }.padding(.top, 24.0)
                 }
-                
-                
             }
             .navigationTitle("Favorites")
         }
     }
 }
 
-struct FavoriteView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoriteView()
-    }
-}
+//struct FavoriteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FavoriteView(userHasFavorites: <#Binding<Bool>#>, filteredFlowers: <#[Flower]#>)
+//    }
+//}

@@ -56,7 +56,7 @@ struct FlowerService {
             if let title = dataPath?.title, let extract = dataPath?.extract, let imageURL = dataPath?.thumbnail.source {
                 guard let url = URL(string: imageURL) else { return nil }
                 
-                let flower = Flower(title: title, extract: extract, imageURL: url)
+                let flower = Flower(id: pageID, title: title, extract: extract, imageURL: url)
                 return flower
             }
             
