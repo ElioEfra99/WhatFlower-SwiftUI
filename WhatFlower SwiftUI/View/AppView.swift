@@ -43,15 +43,15 @@ struct AppView: View {
         .fullScreenCover(isPresented: $foundFlower) {
             guard let url = flower.imageURL else { return }
             let flowerToSave = Flower(id: flower.id, title: flower.title, extract: flower.extract, imageURL: url, isFavorite: flower.isFavorite)
-            
-            if modelData.flowers.isEmpty || modelData.flowers.contains(where: { flower in
-                flower.id != flowerToSave.id
-            }) {
+            // When flower exists, after detecting it again and marking it as favorite, it should be updated, not ignored
+            if modelData.flowers.contains(where: { $0.id == flowerToSave.id } ) {
+                modelData.replaceFlowerData(flowerToSave)
+            } else {
                 modelData.flowers.append(flowerToSave)
-                updateUserHasFlowers()
-                updateUserHasFavorites()
             }
             
+            updateUserHasFlowers()
+            updateUserHasFavorites()
             clearFlowerObject()
             modelData.saveFlower()
         } content: {
@@ -81,9 +81,7 @@ struct AppView: View {
     }
     
     func updateUserHasFavorites() {
-        if not(filteredFlowers.isEmpty) {
-            userHasFavorites = true
-        }
+        userHasFavorites = not(filteredFlowers.isEmpty) ? true : false
     }
 }
 

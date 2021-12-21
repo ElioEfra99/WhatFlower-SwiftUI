@@ -32,4 +32,10 @@ final class ModelData: ObservableObject {
             }
         }
     }
+    
+    func replaceFlowerData(_ flower: Flower) {
+        if let index = flowers.firstIndex(where: { $0.id == flower.id }) {
+            flowers[index] = flower
+        }
+    }
 }
