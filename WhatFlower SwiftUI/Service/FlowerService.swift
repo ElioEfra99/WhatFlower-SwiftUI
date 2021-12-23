@@ -23,7 +23,7 @@ struct FlowerService {
         }
     }
     
-    func performRequest(with urlString: String) {
+    private func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
@@ -46,7 +46,7 @@ struct FlowerService {
         
     }
     
-    func parseJSON(with data: Data) -> Flower? {
+    private func parseJSON(with data: Data) -> Flower? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(FlowerData.self, from: data)
@@ -64,5 +64,24 @@ struct FlowerService {
             print("Parsing JSON failed with error: \(error)")
         }
         return nil
+    }
+    
+    func getDailyFlower(_ flowerName: String, _ completion: @escaping (Flower) -> ()) {
+        if let urlString = "\(wikipediaUrl)&titles=\(flowerName)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            if let url = URL(string: urlString) {
+                let session = URLSession(configuration: .default)
+                let task = session.dataTask(with: url) { data, response, error in
+                    if let safeData = data {
+                        if let flower = self.parseJSON(with: safeData) {
+                            completion(flower)
+                        }
+                    }
+                }
+                
+                task.resume()
+            } else {
+                print("Non valid url")
+            }
+        }
     }
 }

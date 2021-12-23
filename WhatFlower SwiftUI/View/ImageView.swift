@@ -10,20 +10,28 @@ import SwiftUI
 struct ImageView: View {
     
     let width: CGFloat
+    let title: String
+    let url: URL?
     
     var body: some View {
         ZStack {
-            Image("margarita")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: width, alignment: .center)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: width, height: width, alignment: .center)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            } placeholder: {
+                ProgressView()
+                    .scaleEffect(2)
+            }
+                
             VStack {
                 Spacer()
                 Rectangle()
                     .frame(width: width, height: 40, alignment: .leading)
                     .foregroundColor(Color("ColorBlackTransparentLight"))
-                    .overlay(Text("Margarita").foregroundColor(Color("ColorGreenLight")).offset(x: -(width / 4)))
+                    .overlay(Text(title).foregroundColor(Color("ColorGreenLight")).offset(x: -(width / 4)))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
@@ -34,7 +42,7 @@ struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(width: 200)
+        ImageView(width: 200, title: "", url: URL(string: ""))
             .previewLayout(.sizeThatFits)
     }
 }
