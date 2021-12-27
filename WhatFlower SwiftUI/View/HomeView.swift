@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @Binding var userHasRecentFlowers: Bool
     @StateObject var dailyFlowerVM = DailyFlowerViewModel()
+    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
         GeometryReader { proxy in
@@ -44,9 +45,12 @@ struct HomeView: View {
                             
                             if userHasRecentFlowers {
                                 HStack {
-                                    // Populate this with data fetched from the device
-                                    ImageView(width: (proxy.size.width / 2) - 20, title: dailyFlowerVM.dailyFlower.title, url: dailyFlowerVM.dailyFlower.imageURL)
-                                    ImageView(width: (proxy.size.width / 2) - 20, title: dailyFlowerVM.dailyFlower.title, url: dailyFlowerVM.dailyFlower.imageURL)
+                                    if modelData.flowers.count < 2 {
+                                        ImageView(width: (proxy.size.width / 2) - 20, title: modelData.flowers[0].title, url: modelData.flowers[0].imageURL)
+                                    } else {
+                                        ImageView(width: (proxy.size.width / 2) - 20, title: modelData.flowers[0].title, url: modelData.flowers[0].imageURL)
+                                        ImageView(width: (proxy.size.width / 2) - 20, title: modelData.flowers[1].title, url: modelData.flowers[1].imageURL)
+                                    }
                                 }
                             } else {
                                 HStack {

@@ -9,13 +9,20 @@ import SwiftUI
 
 struct ImageFavoriteView: View {
     @State var isFavorite = true
+    let flower: Flower
     
     var body: some View {
         ZStack {
-            Image("margarita")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            AsyncImage(url: flower.imageURL) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            } placeholder: {
+                ProgressView()
+                    .scaleEffect(2)
+            }
+            
             VStack {
                 HStack {
                     Spacer()
@@ -41,11 +48,11 @@ struct ImageFavoriteView: View {
                 Spacer()
                 
                 Rectangle()
-                    .frame(width: .infinity, height: 40)
+                    .frame(height: 40)
                     .foregroundColor(Color("ColorBlackTransparentLight"))
                     .overlay(
                         HStack {
-                            Text("Margarita")
+                            Text(flower.title)
                                 .foregroundColor(Color("ColorGreenLight"))
                                 .offset(x: 20)
                             Spacer()
@@ -60,7 +67,7 @@ struct ImageFavoriteView: View {
 
 struct ImageFavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageFavoriteView()
+        ImageFavoriteView(flower: Flower(id: 1, title: "Rose", extract: "A flower", imageURL: URL(string: "wikipedia.org")!))
             .previewLayout(.sizeThatFits)
     }
 }

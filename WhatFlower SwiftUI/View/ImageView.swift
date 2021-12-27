@@ -31,7 +31,7 @@ struct ImageView: View {
                 Rectangle()
                     .frame(width: width, height: 40, alignment: .leading)
                     .foregroundColor(Color("ColorBlackTransparentLight"))
-                    .overlay(Text(title).foregroundColor(Color("ColorGreenLight")).offset(x: -(width / 4)))
+                    .overlay(Text(title).foregroundColor(Color("ColorGreenLight")))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             

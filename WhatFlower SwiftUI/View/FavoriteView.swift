@@ -27,7 +27,7 @@ struct FavoriteView: View {
                     ScrollView {
                         LazyVGrid(columns: layout, spacing: 20.0) {
                             ForEach(filteredFlowers) { flower in
-                                ImageFavoriteView()
+                                ImageFavoriteView(flower: flower)
                             }
                         }
                         .padding(.horizontal)
