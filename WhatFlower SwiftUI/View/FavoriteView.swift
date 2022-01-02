@@ -10,7 +10,12 @@ import SwiftUI
 struct FavoriteView: View {
     @Binding var userHasFavorites: Bool
     @EnvironmentObject var modelData: ModelData
-    var filteredFlowers: [Flower]
+    
+    var filteredFlowers: [Flower] {
+        modelData.flowers.filter { flower in
+            flower.isFavorite
+        }
+    }
     
     let layout = [
         GridItem(.flexible()),
@@ -27,7 +32,7 @@ struct FavoriteView: View {
                     ScrollView {
                         LazyVGrid(columns: layout, spacing: 20.0) {
                             ForEach(filteredFlowers) { flower in
-                                ImageFavoriteView(flower: flower)
+                                ImageFavoriteView(flower: flower, userHasFavorites: $userHasFavorites)
                             }
                         }
                         .padding(.horizontal)

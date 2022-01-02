@@ -14,12 +14,6 @@ struct AppView: View {
     @State var userHasRecentFlowers = false
     @State var userHasFavorites = false
     
-    var filteredFlowers: [Flower] {
-        modelData.flowers.filter { flower in
-            flower.isFavorite
-        }
-    }
-    
     let not = (!)
     
     var body: some View {
@@ -29,7 +23,7 @@ struct AppView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            FavoriteView(userHasFavorites: $userHasFavorites, filteredFlowers: filteredFlowers)
+            FavoriteView(userHasFavorites: $userHasFavorites)
                 .tabItem {
                     Image(systemName: "heart")
                     Text("Favorites")
@@ -43,7 +37,6 @@ struct AppView: View {
         .fullScreenCover(isPresented: $foundFlower) {
             guard let url = flower.imageURL else { return }
             let flowerToSave = Flower(id: flower.id, title: flower.title, extract: flower.extract, imageURL: url, isFavorite: flower.isFavorite)
-            // When flower exists, after detecting it again and marking it as favorite, it should be updated, not ignored
             if modelData.flowers.contains(where: { $0.id == flowerToSave.id } ) {
                 modelData.replaceFlowerData(flowerToSave)
             } else {
@@ -81,7 +74,13 @@ struct AppView: View {
     }
     
     func updateUserHasFavorites() {
-        userHasFavorites = not(filteredFlowers.isEmpty) ? true : false
+        for flower in modelData.flowers {
+            if flower.isFavorite {
+                userHasFavorites = true
+                return
+            }
+        }
+        userHasFavorites = false
     }
 }
 

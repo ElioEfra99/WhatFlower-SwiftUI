@@ -18,7 +18,6 @@ final class DailyFlowerViewModel: ObservableObject {
     @Published var dailyFlower = Flower(id: 0, title: "", extract: "", imageURL: URL(string: "wikipedia.org")!) {
         didSet {
             didChange.send(self)
-            print("Daily flower now contains: \(dailyFlower)")
         }
     }
     

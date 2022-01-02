@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ImageFavoriteView: View {
-    @State var isFavorite = true
     let flower: Flower
+    var flowerIndex: Int {
+        modelData.flowers.firstIndex { $0.id == flower.id }!
+    }
+    @State var isFavorite = true
+    @EnvironmentObject var modelData: ModelData
+    @Binding var userHasFavorites: Bool
     
     var body: some View {
         ZStack {
@@ -28,7 +33,7 @@ struct ImageFavoriteView: View {
                     Spacer()
                     ZStack {
                         Button(action: {
-                            isFavorite.toggle()
+                            unFavoriteFlower()
                         }) {
                             if isFavorite {
                                 Image(systemName: "heart.fill")
@@ -63,11 +68,28 @@ struct ImageFavoriteView: View {
             }
         }
     }
+    
+    func unFavoriteFlower() {
+        isFavorite.toggle()
+        modelData.flowers[flowerIndex].isFavorite = false
+        modelData.saveFlower()
+        updateUserHasFavorites()
+    }
+    
+    func updateUserHasFavorites() {
+        for flower in modelData.flowers {
+            if flower.isFavorite {
+                userHasFavorites = true
+                return
+            }
+        }
+        userHasFavorites = false
+    }
 }
 
 struct ImageFavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageFavoriteView(flower: Flower(id: 1, title: "Rose", extract: "A flower", imageURL: URL(string: "wikipedia.org")!))
+        ImageFavoriteView(flower: Flower(id: 1, title: "Rose", extract: "A flower", imageURL: URL(string: "wikipedia.org")!), userHasFavorites: .constant(true))
             .previewLayout(.sizeThatFits)
     }
 }
