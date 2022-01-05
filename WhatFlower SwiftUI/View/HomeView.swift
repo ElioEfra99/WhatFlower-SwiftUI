@@ -34,7 +34,9 @@ struct HomeView: View {
                                 Spacer()
                                 
                                 if userHasRecentFlowers {
-                                    Button(action: { print("Show latest discoveries screen")} ) {
+                                    NavigationLink {
+                                        LatestDiscoveriesView()
+                                    } label: {
                                         Text("See all")
                                             .font(Font.system(size: 14, weight: .regular))
                                             .foregroundColor(.secondary)
@@ -92,6 +94,7 @@ struct HomeView: View {
 
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        HomeView()
+//        HomeView(userHasRecentFlowers: .constant(true))
+//            .environmentObject(ModelData())
 //    }
 //}
