@@ -12,6 +12,7 @@ import Vision
 
 struct ImagePickerView: UIViewControllerRepresentable {
     @EnvironmentObject var flower: FlowerObject
+    @EnvironmentObject var modelData: ModelData
     @Binding var isPresented: Bool
     @Binding var isLoading: Bool
     @Binding var fetchingFailed: Bool
@@ -58,8 +59,15 @@ struct ImagePickerView: UIViewControllerRepresentable {
                 }
                 
                 if let firstItem = classification.first {
-                    let flowerFound = firstItem.identifier
-                    self.flowerService.fetchFlower(flowerName: flowerFound)
+                    let flowerName = firstItem.identifier
+                    let flowerStoredInDevice = self.parent.modelData.flowers.contains(where: { $0.tag == flowerName })
+                    
+                    if flowerStoredInDevice {
+                        let flower = self.retrieveFlowerFromDevice(with: flowerName)
+                        self.moveFlowerData(flower)
+                    } else {
+                        self.flowerService.fetchFlower(flowerName: flowerName)
+                    }
                 }
             }
             
@@ -75,23 +83,42 @@ struct ImagePickerView: UIViewControllerRepresentable {
         //MARK: - FlowerService Delegate Methods
         
         func didFindFlower(_ flower: Flower) {
-            DispatchQueue.main.async {
-                self.parent.flower.title = flower.title
-                self.parent.flower.extract = flower.extract
-                self.parent.flower.imageURL = flower.imageURL
-                self.parent.flower.id = flower.id
+            moveFlowerData(flower, true)
+        }
+        
+        func moveFlowerData(_ flower: Flower, _ isBackgroundTask: Bool = false) {
+            if isBackgroundTask {
+                DispatchQueue.main.async {
+                    self.assignProperties(from: flower)
+                }
+            } else {
+                assignProperties(from: flower)
             }
             
             parent.isPresented = false
             parent.isLoading = false
         }
         
+        func assignProperties(from flower: Flower) {
+            self.parent.flower.title = flower.title
+            self.parent.flower.extract = flower.extract
+            self.parent.flower.imageURL = flower.imageURL
+            self.parent.flower.id = flower.id
+            self.parent.flower.tag = flower.tag
+            self.parent.flower.isFavorite = flower.isFavorite
+        }
+        
+        func retrieveFlowerFromDevice(with tag: String) -> Flower {
+            guard let index = self.parent.modelData.flowers.firstIndex(where: { $0.tag == tag }) else {
+                fatalError("Could not find flower with name \(tag) stored in the device")
+            }
+            return self.parent.modelData.flowers[index]
+        }
+        
         func didFail(with error: Error) {
             print("Failed to retrieve flower data from wikipedia API, error: \(error)")
             
-            // Show an alert about the user not having internet connection
             parent.fetchingFailed = true
-            
             parent.isPresented = false
             parent.isLoading = false
         }

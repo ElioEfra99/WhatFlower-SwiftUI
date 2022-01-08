@@ -19,11 +19,11 @@ struct FlowerService {
     
     func fetchFlower(flowerName: String) {
         if let urlString = "\(wikipediaUrl)&titles=\(flowerName)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            performRequest(with: urlString)
+            performRequest(with: urlString, tag: flowerName)
         }
     }
     
-    private func performRequest(with urlString: String) {
+    private func performRequest(with urlString: String, tag: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
@@ -33,7 +33,7 @@ struct FlowerService {
                 }
                 
                 if let safeData = data {
-                    if let flower = self.parseJSON(with: safeData) {
+                    if let flower = self.parseJSON(with: safeData, tag: tag) {
                         self.delegate?.didFindFlower(flower)
                     }
                 }
@@ -46,7 +46,7 @@ struct FlowerService {
         
     }
     
-    private func parseJSON(with data: Data) -> Flower? {
+    private func parseJSON(with data: Data, tag: String) -> Flower? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(FlowerData.self, from: data)
@@ -56,7 +56,7 @@ struct FlowerService {
             if let title = dataPath?.title, let extract = dataPath?.extract, let imageURL = dataPath?.thumbnail.source {
                 guard let url = URL(string: imageURL) else { return nil }
                 
-                let flower = Flower(id: pageID, title: title, extract: extract, imageURL: url)
+                let flower = Flower(id: pageID, title: title, extract: extract, imageURL: url, tag: tag)
                 return flower
             }
             
@@ -72,7 +72,7 @@ struct FlowerService {
                 let session = URLSession(configuration: .default)
                 let task = session.dataTask(with: url) { data, response, error in
                     if let safeData = data {
-                        if let flower = self.parseJSON(with: safeData) {
+                        if let flower = self.parseJSON(with: safeData, tag: flowerName) {
                             completion(flower)
                         }
                     }

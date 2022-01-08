@@ -12,5 +12,6 @@ struct Flower: Identifiable, Codable {
     let title: String
     let extract: String
     let imageURL: URL
+    let tag: String
     var isFavorite: Bool = false
 }

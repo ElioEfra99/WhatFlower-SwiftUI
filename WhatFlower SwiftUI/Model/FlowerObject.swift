@@ -13,11 +13,13 @@ class FlowerObject: ObservableObject {
     @Published var extract: String
     @Published var imageURL: URL?
     @Published var isFavorite: Bool = false
+    @Published var tag: String
     
-    init(title: String = "", extract: String = "", imageURL: URL? = nil, id: Int = 0) {
+    init(title: String = "", extract: String = "", imageURL: URL? = nil, id: Int = 0, tag: String = "") {
         self.title = title
         self.extract = extract
         self.imageURL = imageURL
         self.id = id
+        self.tag = tag
     }
 }

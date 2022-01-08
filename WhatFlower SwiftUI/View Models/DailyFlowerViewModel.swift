@@ -12,16 +12,16 @@ import SwiftUI
 final class DailyFlowerViewModel: ObservableObject {
     
     init() {
-        fetchPosts()
+        fetchDailyFlower()
     }
     
-    @Published var dailyFlower = Flower(id: 0, title: "", extract: "", imageURL: URL(string: "wikipedia.org")!) {
+    @Published var dailyFlower = Flower(id: 0, title: "", extract: "", imageURL: URL(string: "wikipedia.org")!, tag: "") {
         didSet {
             didChange.send(self)
         }
     }
     
-    private func fetchPosts() {
+    private func fetchDailyFlower() {
         let defaults = UserDefaults.standard
         
         if let flowerString = defaults.string(forKey: "DailyFlower") {
