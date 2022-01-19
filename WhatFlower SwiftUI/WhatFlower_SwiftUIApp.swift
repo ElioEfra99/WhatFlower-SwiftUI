@@ -12,10 +12,7 @@ struct WhatFlower_SwiftUIApp: App {
     @StateObject var modelData = ModelData()
     let defaults = UserDefaults.standard
     
-    init() {
-        
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
-        
+    init() {        
         let myTime = Date()
         let myCalendar = Calendar.current
         let currentDay = myCalendar.component(.day, from: myTime)

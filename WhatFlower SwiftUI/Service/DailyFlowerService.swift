@@ -10,12 +10,15 @@ import Foundation
 struct DailyFlowerService {
     static let shared = DailyFlowerService()
     
-    private let flowers = ["pink primrose", "hard-leaved pocket orchid", "canterbury bells", "english marigold", "moon orchid", "monkshood", "globe thistle", "snapdragon", "king protea", "spear thistle", "yellow iris", "globe-flower",
-                   "purple coneflower", "peruvian lily", "balloon flower", "giant white arum lily", "fritillary", "red ginger", "grape hyacinth", "corn poppy", "artichoke", "sweet william", "carnation", "garden phlox",
-                   "mexican aster", "alpine sea holly", "siam tulip", "lenten rose", "barberton daisy", "daffodil", "sword lily", "poinsettia", "bolero deep blue", "wallflower", "buttercup", "oxeye daisy", "common dandelion",
-                   "petunia", "wild pansy", "primula", "sunflower", "pelargonium", "gaura", "geranium", "cautleya spicata", "japanese anemone", "californian poppy", "osteospermum", "spring crocus", "bearded iris", "gazania",
-                   "azalea", "rose", "morning glory", "passion flower", "lotus flower", "toad lily", "anthurium", "frangipani", "clematis", "hibiscus", "columbine flower", "adenium", "tree mallow", "magnolia", "cyclamen",
-                   "watercress", "canna lily", "hippeastrum", "bee balm", "ball moss", "foxglove", "bougainvillea", "camellia", "mexican petunia", "bromelia", "blanket flower", "trumpet creeper", "blackberry lily"
+    private let flowers = ["pink primrose", "hard-leaved pocket orchid", "canterbury bells", "Lathyrus", "english marigold", "Lilium lancifolium", "moon orchid", "Strelizia", "monkshood", "globe thistle", "snapdragon",
+                           "Tussilago farfara", "king protea", "spear thistle", "yellow iris", "globe-flower", "purple coneflower", "peruvian lily", "balloon flower", "giant white arum lily", "Lilium bulbiferum",
+                           "Scabiosa", "fritillary", "red ginger", "grape hyacinth", "corn poppy", "Amaranthus hypochondriacus", "Gentiana acaulis", "artichoke", "sweet william", "carnation", "garden phlox",
+                           "Nigella damascena", "mexican aster", "alpine sea holly", "Cattleya labiata", "Nerine bowdenii", "Astrantia", "siam tulip", "Helleborus orientalis", "barberton daisy", "Narcissus poeticus",
+                           "sword lily", "poinsettia", "bolero deep blue", "Erysimum cheiri", "Tagetes", "buttercup", "oxeye daisy", "Taraxacum", "petunia", "Viola pedunculata", "primula", "sunflower", "pelargonium",
+                           "Dahlia 'Bishop of Llandaff'", "Gaura lindheimeri", "geranium", "Dahlia 'Moonfire'", "Dahlia", "cautleya spicata", "japanese anemone", "Rudbeckia hirta", "Convolvulus cneorum", "californian poppy",
+                           "osteospermum", "spring crocus", "Iris germanica", "Anemone", "Romneya coulteri", "gazania", "azalea", "Nymphaeaceae", "rose", "Datura", "morning glory", "passion flower", "Nelumbo nucifera",
+                           "toad lily", "anthurium", "frangipani", "clematis", "hibiscus", "Aquilegia", "Adenium obesum", "Malva subovata", "magnolia", "cyclamen", "watercress", "canna lily", "hippeastrum", "bee balm",
+                           "ball moss", "foxglove", "bougainvillea", "camellia", "Malva sylvestris", "mexican petunia", "bromelia", "blanket flower", "trumpet creeper", "blackberry lily"
     ]
     
     var dailyFlower: String {

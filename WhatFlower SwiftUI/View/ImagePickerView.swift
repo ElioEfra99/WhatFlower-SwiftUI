@@ -19,6 +19,8 @@ struct ImagePickerView: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let uiImagePicker = UIImagePickerController()
+        uiImagePicker.sourceType = .camera
+        uiImagePicker.allowsEditing = true
         uiImagePicker.delegate = context.coordinator
         return uiImagePicker
     }
@@ -41,7 +43,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let selectedImage = info[.originalImage] as? UIImage {
+            if let selectedImage = info[.editedImage] as? UIImage {
                 guard let ciImage = CIImage(image: selectedImage) else { return }
                 parent.isLoading = true
                 detect(flowerImage: ciImage)
