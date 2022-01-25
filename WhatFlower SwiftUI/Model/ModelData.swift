@@ -13,17 +13,19 @@ final class ModelData: ObservableObject {
     private let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Flowers.plist")
     
     func saveFlower() {
+        guard let dataFilePath = dataFilePath else { return }
         let encoder = PropertyListEncoder()
         do {
             let data = try encoder.encode(flowers)
-            try data.write(to: dataFilePath!)
+            try data.write(to: dataFilePath)
         } catch {
             print("Saving flowers failed with error: \(error)")
         }
     }
     
     func loadFlowers() {
-        if let data = try? Data(contentsOf: dataFilePath!) {
+        guard let dataFilePath = dataFilePath else { return }
+        if let data = try? Data(contentsOf: dataFilePath) {
             let decoder = PropertyListDecoder()
             do {
                 flowers = try decoder.decode([Flower].self, from: data)

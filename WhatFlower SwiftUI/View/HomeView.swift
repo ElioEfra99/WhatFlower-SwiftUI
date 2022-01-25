@@ -86,7 +86,7 @@ struct HomeView: View {
                         .padding(.horizontal)
                     }
                 }
-                .navigationTitle("WhatFlower?")
+                .navigationTitle("Flower Finder")
             }
         }
     }
