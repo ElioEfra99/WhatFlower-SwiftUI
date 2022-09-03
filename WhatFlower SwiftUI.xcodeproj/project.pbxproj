@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F02618A2746E23200581F54 /* FlowerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0261892746E23200581F54 /* FlowerData.swift */; };
+		4F02618C27471A9A00581F54 /* FlowerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02618B27471A9A00581F54 /* FlowerObject.swift */; };
+		4F1D9FAF274C81C8004F5613 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D9FAE274C81C8004F5613 /* Flower.swift */; };
+		4F2E009D277494C000225C47 /* DailyFlowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E009C277494C000225C47 /* DailyFlowerViewModel.swift */; };
+		4F38DEC727852DC0004EFCE7 /* LatestDiscoveriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F38DEC627852DC0004EFCE7 /* LatestDiscoveriesView.swift */; };
+		4F38DECA27852F0B004EFCE7 /* FlowerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F38DEC927852F0B004EFCE7 /* FlowerList.swift */; };
+		4F38DECC27852F16004EFCE7 /* FlowerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F38DECB27852F16004EFCE7 /* FlowerRow.swift */; };
+		4F47FE172733F7AA00F2C583 /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F47FE162733F7AA00F2C583 /* CameraButton.swift */; };
+		4F4ABD202745BB5F003A8A68 /* FlowerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4ABD1F2745BB5F003A8A68 /* FlowerService.swift */; };
+		4F51A828274988AB0010A6DB /* FlowerResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51A827274988AB0010A6DB /* FlowerResultView.swift */; };
+		4F78973E27248A9E0096B18B /* WhatFlower_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78973D27248A9E0096B18B /* WhatFlower_SwiftUIApp.swift */; };
+		4F78974027248A9E0096B18B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78973F27248A9E0096B18B /* HomeView.swift */; };
+		4F78974227248A9F0096B18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F78974127248A9F0096B18B /* Assets.xcassets */; };
+		4F78974527248A9F0096B18B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F78974427248A9F0096B18B /* Preview Assets.xcassets */; };
+		4F78974C27248DC60096B18B /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4F78974B27248DC60096B18B /* FlowerClassifier.mlmodel */; };
+		4FA414082730CFBC0014355A /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA414072730CFBC0014355A /* ImageView.swift */; };
+		4FD7327D273D3830004203AE /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7327C273D3830004203AE /* ImagePickerView.swift */; };
+		4FDAE6DC27727D6F0040FF61 /* DailyFlowerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDAE6DB27727D6F0040FF61 /* DailyFlowerService.swift */; };
+		4FE9D5BF27680D120015E69C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9D5BE27680D120015E69C /* ModelData.swift */; };
+		4FF784A2273A0B5D009A23FF /* ImageFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF784A1273A0B5D009A23FF /* ImageFavoriteView.swift */; };
+		4FFC7F6A2733385E002059AB /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC7F692733385E002059AB /* AppView.swift */; };
+		4FFC7F6C273338CD002059AB /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC7F6B273338CD002059AB /* FavoriteView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F0261892746E23200581F54 /* FlowerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerData.swift; sourceTree = "<group>"; };
+		4F02618B27471A9A00581F54 /* FlowerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerObject.swift; sourceTree = "<group>"; };
+		4F1D9FAE274C81C8004F5613 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
+		4F23DE562745951800EEC495 /* WhatFlower-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WhatFlower-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4F2E009C277494C000225C47 /* DailyFlowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFlowerViewModel.swift; sourceTree = "<group>"; };
+		4F38DEC627852DC0004EFCE7 /* LatestDiscoveriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestDiscoveriesView.swift; sourceTree = "<group>"; };
+		4F38DEC927852F0B004EFCE7 /* FlowerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerList.swift; sourceTree = "<group>"; };
+		4F38DECB27852F16004EFCE7 /* FlowerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerRow.swift; sourceTree = "<group>"; };
+		4F47FE162733F7AA00F2C583 /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
+		4F4ABD1F2745BB5F003A8A68 /* FlowerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerService.swift; sourceTree = "<group>"; };
+		4F51A827274988AB0010A6DB /* FlowerResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerResultView.swift; sourceTree = "<group>"; };
+		4F78973A27248A9E0096B18B /* WhatFlower SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatFlower SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F78973D27248A9E0096B18B /* WhatFlower_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatFlower_SwiftUIApp.swift; sourceTree = "<group>"; };
+		4F78973F27248A9E0096B18B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4F78974127248A9F0096B18B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F78974427248A9F0096B18B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4F78974B27248DC60096B18B /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
+		4FA414072730CFBC0014355A /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		4FD7327C273D3830004203AE /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		4FDAE6DB27727D6F0040FF61 /* DailyFlowerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFlowerService.swift; sourceTree = "<group>"; };
+		4FE9D5BE27680D120015E69C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		4FF784A1273A0B5D009A23FF /* ImageFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFavoriteView.swift; sourceTree = "<group>"; };
+		4FFC7F692733385E002059AB /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		4FFC7F6B273338CD002059AB /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F78973727248A9E0096B18B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F2E009B277494A600225C47 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E009C277494C000225C47 /* DailyFlowerViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		4F38DEC827852EBD004EFCE7 /* Flowers */ = {
+			isa = PBXGroup;
+			children = (
+				4F51A827274988AB0010A6DB /* FlowerResultView.swift */,
+				4F38DEC927852F0B004EFCE7 /* FlowerList.swift */,
+				4F38DECB27852F16004EFCE7 /* FlowerRow.swift */,
+			);
+			path = Flowers;
+			sourceTree = "<group>";
+		};
+		4F47FE152733F77F00F2C583 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4F47FE162733F7AA00F2C583 /* CameraButton.swift */,
+				4FF784A1273A0B5D009A23FF /* ImageFavoriteView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4F4ABD1E2745BB47003A8A68 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4F4ABD1F2745BB5F003A8A68 /* FlowerService.swift */,
+				4FDAE6DB27727D6F0040FF61 /* DailyFlowerService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4F78973127248A9E0096B18B = {
+			isa = PBXGroup;
+			children = (
+				4F78973C27248A9E0096B18B /* WhatFlower SwiftUI */,
+				4F78973B27248A9E0096B18B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4F78973B27248A9E0096B18B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F78973A27248A9E0096B18B /* WhatFlower SwiftUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F78973C27248A9E0096B18B /* WhatFlower SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				4F23DE562745951800EEC495 /* WhatFlower-SwiftUI-Info.plist */,
+				4F4ABD1E2745BB47003A8A68 /* Service */,
+				4FA2E5852730AA1200124439 /* Model */,
+				4F2E009B277494A600225C47 /* View Models */,
+				4FA2E5862730AA2A00124439 /* View */,
+				4F78974B27248DC60096B18B /* FlowerClassifier.mlmodel */,
+				4F78973D27248A9E0096B18B /* WhatFlower_SwiftUIApp.swift */,
+				4F78974127248A9F0096B18B /* Assets.xcassets */,
+				4F78974327248A9F0096B18B /* Preview Content */,
+			);
+			path = "WhatFlower SwiftUI";
+			sourceTree = "<group>";
+		};
+		4F78974327248A9F0096B18B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4F78974427248A9F0096B18B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4FA2E5852730AA1200124439 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F0261892746E23200581F54 /* FlowerData.swift */,
+				4F02618B27471A9A00581F54 /* FlowerObject.swift */,
+				4F1D9FAE274C81C8004F5613 /* Flower.swift */,
+				4FE9D5BE27680D120015E69C /* ModelData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4FA2E5862730AA2A00124439 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F38DEC827852EBD004EFCE7 /* Flowers */,
+				4F47FE152733F77F00F2C583 /* Helpers */,
+				4F78973F27248A9E0096B18B /* HomeView.swift */,
+				4FA414072730CFBC0014355A /* ImageView.swift */,
+				4FFC7F692733385E002059AB /* AppView.swift */,
+				4FFC7F6B273338CD002059AB /* FavoriteView.swift */,
+				4FD7327C273D3830004203AE /* ImagePickerView.swift */,
+				4F38DEC627852DC0004EFCE7 /* LatestDiscoveriesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F78973927248A9E0096B18B /* WhatFlower SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F78974827248A9F0096B18B /* Build configuration list for PBXNativeTarget "WhatFlower SwiftUI" */;
+			buildPhases = (
+				4F78973627248A9E0096B18B /* Sources */,
+				4F78973727248A9E0096B18B /* Frameworks */,
+				4F78973827248A9E0096B18B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WhatFlower SwiftUI";
+			productName = "WhatFlower SwiftUI";
+			productReference = 4F78973A27248A9E0096B18B /* WhatFlower SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F78973227248A9E0096B18B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					4F78973927248A9E0096B18B = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 4F78973527248A9E0096B18B /* Build configuration list for PBXProject "WhatFlower SwiftUI" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F78973127248A9E0096B18B;
+			productRefGroup = 4F78973B27248A9E0096B18B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F78973927248A9E0096B18B /* WhatFlower SwiftUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F78973827248A9E0096B18B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F78974527248A9F0096B18B /* Preview Assets.xcassets in Resources */,
+				4F78974227248A9F0096B18B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F78973627248A9E0096B18B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F1D9FAF274C81C8004F5613 /* Flower.swift in Sources */,
+				4FF784A2273A0B5D009A23FF /* ImageFavoriteView.swift in Sources */,
+				4FE9D5BF27680D120015E69C /* ModelData.swift in Sources */,
+				4FA414082730CFBC0014355A /* ImageView.swift in Sources */,
+				4F2E009D277494C000225C47 /* DailyFlowerViewModel.swift in Sources */,
+				4F02618A2746E23200581F54 /* FlowerData.swift in Sources */,
+				4F4ABD202745BB5F003A8A68 /* FlowerService.swift in Sources */,
+				4FDAE6DC27727D6F0040FF61 /* DailyFlowerService.swift in Sources */,
+				4F38DEC727852DC0004EFCE7 /* LatestDiscoveriesView.swift in Sources */,
+				4F02618C27471A9A00581F54 /* FlowerObject.swift in Sources */,
+				4F51A828274988AB0010A6DB /* FlowerResultView.swift in Sources */,
+				4F78974C27248DC60096B18B /* FlowerClassifier.mlmodel in Sources */,
+				4F78974027248A9E0096B18B /* HomeView.swift in Sources */,
+				4F38DECC27852F16004EFCE7 /* FlowerRow.swift in Sources */,
+				4FD7327D273D3830004203AE /* ImagePickerView.swift in Sources */,
+				4FFC7F6A2733385E002059AB /* AppView.swift in Sources */,
+				4FFC7F6C273338CD002059AB /* FavoriteView.swift in Sources */,
+				4F78973E27248A9E0096B18B /* WhatFlower_SwiftUIApp.swift in Sources */,
+				4F47FE172733F7AA00F2C583 /* CameraButton.swift in Sources */,
+				4F38DECA27852F0B004EFCE7 /* FlowerList.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4F78974627248A9F0096B18B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4F78974727248A9F0096B18B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F78974927248A9F0096B18B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WhatFlower SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 3YGD9ATNQ7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WhatFlower-SwiftUI-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FF - Flower Finder";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To start detecting flowers, we need your permission to use your camera";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eliu.WhatFlower;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4F78974A27248A9F0096B18B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WhatFlower SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 3YGD9ATNQ7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WhatFlower-SwiftUI-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FF - Flower Finder";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To start detecting flowers, we need your permission to use your camera";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eliu.WhatFlower;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F78973527248A9E0096B18B /* Build configuration list for PBXProject "WhatFlower SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F78974627248A9F0096B18B /* Debug */,
+				4F78974727248A9F0096B18B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F78974827248A9F0096B18B /* Build configuration list for PBXNativeTarget "WhatFlower SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F78974927248A9F0096B18B /* Debug */,
+				4F78974A27248A9F0096B18B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F78973227248A9E0096B18B /* Project object */;
+}
