@@ -10,22 +10,9 @@ import SwiftUI
 @main
 struct WhatFlower_SwiftUIApp: App {
     @StateObject var modelData = ModelData()
-    let defaults = UserDefaults.standard
     
     init() {        
-        let myTime = Date()
-        let myCalendar = Calendar.current
-        let currentDay = myCalendar.component(.day, from: myTime)
-        
-        if defaults.string(forKey: "DailyFlower") == nil {
-            defaults.set(DailyFlowerService.shared.dailyFlower, forKey: "DailyFlower")
-            defaults.set(currentDay, forKey: "CurrentDay")
-        } else {
-            if currentDay != defaults.integer(forKey: "CurrentDay") {
-                defaults.set(DailyFlowerService.shared.dailyFlower, forKey: "DailyFlower")
-                defaults.set(currentDay, forKey: "CurrentDay")
-            }
-        }
+        generateDailyFlower()
     }
     
     var body: some Scene {
@@ -33,5 +20,25 @@ struct WhatFlower_SwiftUIApp: App {
             AppView()
                 .environmentObject(modelData)
         }
+    }
+    
+    func generateDailyFlower() {
+        let defaults = UserDefaults.standard
+        let myTime = Date()
+        let myCalendar = Calendar.current
+        let currentDay = myCalendar.component(.day, from: myTime)
+        
+        if defaults.string(forKey: "DailyFlower") == nil {
+            setDailyFlower(flowerName: DailyFlowerService.shared.dailyFlower, currentDay: currentDay, for: defaults)
+        } else {
+            if currentDay != defaults.integer(forKey: "CurrentDay") {
+                setDailyFlower(flowerName: DailyFlowerService.shared.dailyFlower, currentDay: currentDay, for: defaults)
+            }
+        }
+    }
+    
+    private func setDailyFlower(flowerName: String, currentDay: Int, for defaults: UserDefaults) {
+        defaults.set(flowerName, forKey: "DailyFlower")
+        defaults.set(currentDay, forKey: "CurrentDay")
     }
 }
