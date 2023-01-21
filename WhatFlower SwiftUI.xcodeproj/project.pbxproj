@@ -178,6 +178,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F78974827248A9F0096B18B /* Build configuration list for PBXNativeTarget "WhatFlower SwiftUI" */;
 			buildPhases = (
+				4F3CAD56297B9BC700898212 /* Run SwiftLint */,
 				4F78973627248A9E0096B18B /* Sources */,
 				4F78973727248A9E0096B18B /* Frameworks */,
 				4F78973827248A9E0096B18B /* Resources */,
@@ -235,6 +236,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F3CAD56297B9BC700898212 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F78973627248A9E0096B18B /* Sources */ = {
