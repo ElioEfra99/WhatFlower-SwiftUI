@@ -34,7 +34,6 @@ struct ImageView: View {
                     .overlay(Text(title).foregroundColor(Color("ColorGreenLight")))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
-            
         }
         .frame(width: width, height: width, alignment: .center)
     }

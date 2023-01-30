@@ -13,7 +13,7 @@ struct FlowerData: Decodable {
 
 struct Query: Decodable {
     let pageids: [String]
-    let pages: [Int:Pages]
+    let pages: [Int: Pages]
 }
 
 struct Pages: Decodable {

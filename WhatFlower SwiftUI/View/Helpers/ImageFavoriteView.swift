@@ -62,7 +62,6 @@ struct ImageFavoriteView: View {
                                 .offset(x: 20)
                             Spacer()
                         }
-                        
                     )
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
@@ -89,7 +88,12 @@ struct ImageFavoriteView: View {
 
 struct ImageFavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageFavoriteView(flower: Flower(id: 1, title: "Rose", extract: "A flower", imageURL: URL(string: "wikipedia.org")!, tag: "rose"), userHasFavorites: .constant(true))
+        ImageFavoriteView(flower: Flower(id: 1,
+                                         title: "Rose",
+                                         extract: "A flower",
+                                         imageURL: URL(string: "wikipedia.org")!,
+                                         tag: "rose"),
+                          userHasFavorites: .constant(true))
             .previewLayout(.sizeThatFits)
     }
 }

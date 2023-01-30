@@ -35,6 +35,29 @@ struct FlowerRow: View {
 
 struct FlowerRow_Previews: PreviewProvider {
     static var previews: some View {
-        FlowerRow(flower: Flower(id: 1, title: "Rose", extract: "A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower A flower", imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Rosa_rubiginosa_1.jpg/350px-Rosa_rubiginosa_1.jpg")!, tag: "a flower"))
+        FlowerRow(flower: Flower(id: 1,
+                                 title: "Rose",
+                                 extract: """
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 A flower
+                                 """,
+                                 imageURL: URL(string: URLImages.ImagesFrom.urlImagesRubiginosa)!,
+                                 tag: "a flower"))
     }
 }
