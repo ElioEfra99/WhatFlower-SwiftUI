@@ -12,7 +12,6 @@ struct WhatFlower_SwiftUIApp: App {
     @StateObject var modelData = ModelData()
     
     init() {
-        
         generateDailyFlower()
     }
     

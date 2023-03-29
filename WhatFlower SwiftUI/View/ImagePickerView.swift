@@ -42,8 +42,10 @@ struct ImagePickerView: UIViewControllerRepresentable {
             flowerService.delegate = self
         }
         
-        func imagePickerController(_ picker: UIImagePickerController,
-                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        func imagePickerController(
+            _ picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+        ) {
             if let selectedImage = info[.editedImage] as? UIImage {
                 guard let ciImage = CIImage(image: selectedImage) else { return }
                 parent.isLoading = true

@@ -25,9 +25,11 @@ struct HomeView: View {
                                 .font(.system(size: 18, weight: .medium))
                                 .padding(.top, 24)
                             
-                            ImageView(width: proxy.size.width - (proxy.size.width / 3),
-                                      title: dailyFlowerVM.dailyFlower.title,
-                                      url: dailyFlowerVM.dailyFlower.imageURL)
+                            ImageView(
+                                width: proxy.size.width - (proxy.size.width / 3),
+                                title: dailyFlowerVM.dailyFlower.title,
+                                url: dailyFlowerVM.dailyFlower.imageURL
+                            )
                             
                             HStack {
                                 Text("Latest discoveries")
@@ -50,16 +52,22 @@ struct HomeView: View {
                             if userHasRecentFlowers {
                                 HStack {
                                     if modelData.flowers.count < 2 {
-                                        ImageView(width: (proxy.size.width / 2) - 20,
-                                                  title: modelData.flowers[0].title,
-                                                  url: modelData.flowers[0].imageURL)
+                                        ImageView(
+                                            width: (proxy.size.width / 2) - 20,
+                                            title: modelData.flowers[0].title,
+                                            url: modelData.flowers[0].imageURL
+                                        )
                                     } else {
-                                        ImageView(width: (proxy.size.width / 2) - 20,
-                                                  title: modelData.flowers[0].title,
-                                                  url: modelData.flowers[0].imageURL)
-                                        ImageView(width: (proxy.size.width / 2) - 20,
-                                                  title: modelData.flowers[1].title,
-                                                  url: modelData.flowers[1].imageURL)
+                                        ImageView(
+                                            width: (proxy.size.width / 2) - 20,
+                                            title: modelData.flowers[0].title,
+                                            url: modelData.flowers[0].imageURL
+                                        )
+                                        ImageView(
+                                            width: (proxy.size.width / 2) - 20,
+                                            title: modelData.flowers[1].title,
+                                            url: modelData.flowers[1].imageURL
+                                        )
                                     }
                                 }
                             } else {

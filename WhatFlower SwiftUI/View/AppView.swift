@@ -30,17 +30,22 @@ struct AppView: View {
                 }
         }
         .overlay(
-            CameraButton(foundFlower: $foundFlower), alignment: .bottom
+            CameraButton(foundFlower: $foundFlower),
+            alignment: .bottom
         )
         .accentColor(.green)
         .fullScreenCover(isPresented: $foundFlower) {
             guard let url = flower.imageURL else { return }
-            let flowerToSave = Flower(id: flower.id,
-                                      title: flower.title,
-                                      extract: flower.extract,
-                                      imageURL: url,
-                                      tag: flower.tag,
-                                      isFavorite: flower.isFavorite)
+            
+            let flowerToSave = Flower(
+                id: flower.id,
+                title: flower.title,
+                extract: flower.extract,
+                imageURL: url,
+                tag: flower.tag,
+                isFavorite: flower.isFavorite
+            )
+            
             if modelData.flowers.contains(where: { $0.id == flowerToSave.id } ) {
                 modelData.replaceFlowerData(flowerToSave)
             } else {

@@ -77,38 +77,23 @@ struct FlowerResultView: View {
     }
 }
 
+// swiftlint:disable line_length
 struct FlowerResultView_Previews: PreviewProvider {
-    static var data = FlowerObject(title: "Leucanthemum vulgare",
-                                   extract:
-                                    """
-                                        Leucanthemum vulgare,
-                                         commonly known as the ox-eye daisy,
-                                         oxeye daisy,
-                                         dog daisy,
-                                         marguerite (French: Marguerite
-                                         commune,
-                                         \"common marguerite\") and other common names,
-                                         is a widespread flowering plant native to Europe and the
-                                         temperate regions of Asia,
-                                         and an introduced plant to North America,
-                                         Australia and New Zealand.Leucanthemum
-                                         vulgare,
-                                         commonly known as the ox-eye daisy,
-                                         oxeye daisy, dog daisy,
-                                         marguerite (French: Marguerite commune,
-                                         \"common marguerite\") and other common names,
-                                         is a widespread flowering plant native to Europe and the temperate regions of Asia,
-                                         and an introduced plant to North America,
-                                         Australia and New Zealand.
-""",
-                                   imageURL:
-                                    URL(string: URLImages.ImagesFrom.urlImagesVulgare
-                                       ),
-                                   tag:
-                                    "oxeye daisy")
+    static var data = FlowerObject(
+        title: "Leucanthemum vulgare",
+        extract: "Leucanthemum vulgare, commonly known as the ox-eye daisy, oxeye daisy, dog daisy, marguerite (French: Marguerite commune, \"common marguerite\") and other common names, is a widespread flowering plant native to Europe and the temperate regions of Asia, and an introduced plant to North America, Australia and New Zealand.Leucanthemum vulgare, commonly known as the ox-eye daisy, oxeye daisy, dog daisy, marguerite (French: Marguerite commune, \"common marguerite\") and other common names, is a widespread flowering plant native to Europe and the temperate regions of Asia, and an introduced plant to North America, Australia and New Zealand.",
+        imageURL:
+            URL(
+                string: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Leucanthemum_vulgare_%27Filigran%27_Flower_2200px.jpg/400px-Leucanthemum_vulgare_%27Filigran%27_Flower_2200px.jpg"
+            ),
+        tag:
+            "oxeye daisy"
+    )
     
     static var previews: some View {
         FlowerResultView()
             .environmentObject(data)
     }
 }
+
+// swiftlint:enable line_length

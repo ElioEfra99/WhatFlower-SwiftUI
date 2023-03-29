@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		228224F3298732F800312C00 /* urlServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228224F2298732F800312C00 /* urlServices.swift */; };
 		4F02618A2746E23200581F54 /* FlowerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0261892746E23200581F54 /* FlowerData.swift */; };
 		4F02618C27471A9A00581F54 /* FlowerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02618B27471A9A00581F54 /* FlowerObject.swift */; };
 		4F1D9FAF274C81C8004F5613 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D9FAE274C81C8004F5613 /* Flower.swift */; };
@@ -33,7 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		228224F2298732F800312C00 /* urlServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urlServices.swift; sourceTree = "<group>"; };
 		4F0261892746E23200581F54 /* FlowerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerData.swift; sourceTree = "<group>"; };
 		4F02618B27471A9A00581F54 /* FlowerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerObject.swift; sourceTree = "<group>"; };
 		4F1D9FAE274C81C8004F5613 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
@@ -71,14 +69,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		228224F12987310A00312C00 /* Strings */ = {
-			isa = PBXGroup;
-			children = (
-				228224F2298732F800312C00 /* urlServices.swift */,
-			);
-			path = Strings;
-			sourceTree = "<group>";
-		};
 		4F2E009B277494A600225C47 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +124,6 @@
 		4F78973C27248A9E0096B18B /* WhatFlower SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				228224F12987310A00312C00 /* Strings */,
 				4F23DE562745951800EEC495 /* WhatFlower-SwiftUI-Info.plist */,
 				4F4ABD1E2745BB47003A8A68 /* Service */,
 				4FA2E5852730AA1200124439 /* Model */,
@@ -275,7 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F1D9FAF274C81C8004F5613 /* Flower.swift in Sources */,
-				228224F3298732F800312C00 /* urlServices.swift in Sources */,
 				4FF784A2273A0B5D009A23FF /* ImageFavoriteView.swift in Sources */,
 				4FE9D5BF27680D120015E69C /* ModelData.swift in Sources */,
 				4FA414082730CFBC0014355A /* ImageView.swift in Sources */,
@@ -425,7 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 100000;
 				DEVELOPMENT_ASSET_PATHS = "\"WhatFlower SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = X3HD8335FJ;
+				DEVELOPMENT_TEAM = 3YGD9ATNQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WhatFlower-SwiftUI-Info.plist";
@@ -441,7 +429,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.camilo.WhatFlower;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eliu.WhatFlower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -457,7 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 100000;
 				DEVELOPMENT_ASSET_PATHS = "\"WhatFlower SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = X3HD8335FJ;
+				DEVELOPMENT_TEAM = 3YGD9ATNQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WhatFlower-SwiftUI-Info.plist";
@@ -473,7 +461,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.camilo.WhatFlower;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eliu.WhatFlower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

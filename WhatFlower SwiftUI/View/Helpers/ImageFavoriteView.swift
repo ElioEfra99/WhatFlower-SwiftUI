@@ -88,12 +88,16 @@ struct ImageFavoriteView: View {
 
 struct ImageFavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageFavoriteView(flower: Flower(id: 1,
-                                         title: "Rose",
-                                         extract: "A flower",
-                                         imageURL: URL(string: "wikipedia.org")!,
-                                         tag: "rose"),
-                          userHasFavorites: .constant(true))
-            .previewLayout(.sizeThatFits)
+        ImageFavoriteView(
+            flower: Flower(
+                id: 1,
+                title: "Rose",
+                extract: "A flower",
+                imageURL: URL(string: "wikipedia.org")!,
+                tag: "rose"
+            ),
+            userHasFavorites: .constant(true)
+        )
+        .previewLayout(.sizeThatFits)
     }
 }
